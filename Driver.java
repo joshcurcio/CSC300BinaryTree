@@ -7,9 +7,8 @@ public class Driver {
 		bt.add(5);
 		bt.add(4);
 		bt.add(2);
-		//bt.add(1);
-		//bt.add(0);
-		
+		bt.add(1);
+		bt.rotateLeft(bt);
 		System.out.println(bt.isBalanced());
 		
 		//System.out.println(bt.search(11));
