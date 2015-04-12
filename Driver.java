@@ -1,19 +1,26 @@
 
-public class Driver {
+public class Driver 
+{
 
 	public static void main(String[] args) 
 	{
 		BinaryTree bt = new BinaryTree();
+		bt.add(6);
 		bt.add(5);
-		bt.add(4);
-		bt.add(2);
-		bt.add(1);
-		bt.rotateLeft(bt);
-		System.out.println(bt.isBalanced());
+		bt.add(7);
+		bt.displayInOrder();
+		bt.add(8);
+		bt.displayInOrder();
+		bt.add(9);
+		bt.displayInOrder();
+		bt.add(10);
+		bt.add(11);
+		bt.add(12);
+
+		bt.displayInOrder();
 		
-		//System.out.println(bt.search(11));
-		//bt.displayPreOrder();
-		//bt.displayInOrder();
-		//bt.displayPostOrder();
+		System.out.println(bt.isBalanced());
 	}
 }
+
+
