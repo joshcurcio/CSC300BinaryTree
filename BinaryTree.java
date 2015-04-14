@@ -22,6 +22,7 @@ public class BinaryTree
 		this.depth = depth;
 		this.parent = null; //every ROOT node will not have a parent so we need to set it's parent to null
 	}
+	
 	private void  updateDepths(int newDepth)
 	{
 		this.depth = newDepth;
@@ -338,63 +339,40 @@ public class BinaryTree
 				if(this.leftTree == null)
 				{
 					//the right tree is out of balance
-					if (this.rightTree.leftTree == null)
-					{
-						this.rightTree.rotateLeft(this.rightTree);
-					}
-					else
+					if (this.rightTree.leftTree != null)
 					{
 						this.rightTree.rotateRight(this.rightTree.leftTree);
-						this.rightTree.rotateLeft(this.rightTree);
 					}
+					this.rightTree.rotateLeft(this.rightTree);
+					
 				}
 				else if(this.rightTree == null)
 				{
 					//the left tree is out of balance
-					if (this.leftTree.rightTree == null)
-					{
-						this.rightTree.rotateLeft(this.leftTree);
-					}
-					else
+					if (this.leftTree.rightTree != null)
 					{
 						this.leftTree.rotateLeft(this.leftTree.rightTree);
-						this.leftTree.rotateRight(this.leftTree);
 					}
+					this.leftTree.rotateRight(this.leftTree);
 				}
 				else
 				{
 					//we know we have a left and a right tree
 					if(this.leftTree.getMaxDepth() > this.rightTree.getMaxDepth())
 					{
-						if (this.leftTree.rightTree == null)
-						{
-							this.rightTree.rotateLeft(this.leftTree.leftTree);
-						}
-						else if(this.leftTree.rightTree != null && this.leftTree.leftTree != null)
-						{
-							this.leftTree.rotateRight(this.leftTree);
-						}
-						else
+						if (this.leftTree.rightTree != null)
 						{
 							this.leftTree.rotateLeft(this.leftTree.rightTree);
-							this.leftTree.rotateRight(this.leftTree);
 						}
+						this.leftTree.rotateRight(this.leftTree);
 					}
 					else
 					{
-						if (this.rightTree.leftTree == null)
-						{
-							this.rightTree.rotateLeft(this.rightTree.rightTree);
-						}
-						else if(this.rightTree.leftTree != null && this.rightTree.rightTree != null)
-						{
-							this.rightTree.rotateLeft(this.rightTree);
-						}
-						else
+						if (this.rightTree.leftTree != null)
 						{
 							this.rightTree.rotateRight(this.rightTree.leftTree);
-							this.rightTree.rotateLeft(this.rightTree);
 						}
+						this.rightTree.rotateLeft(this.rightTree);
 					}
 				}
 			}

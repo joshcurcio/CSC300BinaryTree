@@ -14,8 +14,6 @@ public class Driver
 		bt.add(9);
 		bt.displayInOrder();
 		bt.add(10);
-		bt.add(11);
-		bt.add(12);
 
 		bt.displayInOrder();
 		
